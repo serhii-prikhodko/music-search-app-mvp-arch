@@ -15,6 +15,9 @@
 		1AB27E44247BF8770097968E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AB27E43247BF8770097968E /* Assets.xcassets */; };
 		1AB27E47247BF8770097968E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AB27E45247BF8770097968E /* LaunchScreen.storyboard */; };
 		1AB27E52247BF8770097968E /* music_search_app_mvp_archTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB27E51247BF8770097968E /* music_search_app_mvp_archTests.swift */; };
+		1AB27E5E247BFDB90097968E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB27E5D247BFDB90097968E /* NetworkService.swift */; };
+		1AB27E62247C01660097968E /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB27E61247C01660097968E /* Artist.swift */; };
+		1AB27E66247C0F5E0097968E /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB27E65247C0F5E0097968E /* RequestBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		1AB27E4D247BF8770097968E /* music-search-app-mvp-archTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "music-search-app-mvp-archTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB27E51247BF8770097968E /* music_search_app_mvp_archTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = music_search_app_mvp_archTests.swift; sourceTree = "<group>"; };
 		1AB27E53247BF8770097968E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AB27E5D247BFDB90097968E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		1AB27E61247C01660097968E /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		1AB27E65247C0F5E0097968E /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,8 @@
 		1AB27E36247BF8750097968E /* music-search-app-mvp-arch */ = {
 			isa = PBXGroup;
 			children = (
+				1AB27E5F247BFEE70097968E /* SearchModule */,
+				1AB27E5C247BFD890097968E /* ServiceLayer */,
 				1AB27E37247BF8750097968E /* AppDelegate.swift */,
 				1AB27E39247BF8750097968E /* SceneDelegate.swift */,
 				1AB27E3B247BF8750097968E /* ViewController.swift */,
@@ -100,6 +108,31 @@
 				1AB27E53247BF8770097968E /* Info.plist */,
 			);
 			path = "music-search-app-mvp-archTests";
+			sourceTree = "<group>";
+		};
+		1AB27E5C247BFD890097968E /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				1AB27E5D247BFDB90097968E /* NetworkService.swift */,
+				1AB27E65247C0F5E0097968E /* RequestBuilder.swift */,
+			);
+			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		1AB27E5F247BFEE70097968E /* SearchModule */ = {
+			isa = PBXGroup;
+			children = (
+				1AB27E60247BFEF60097968E /* Model */,
+			);
+			path = SearchModule;
+			sourceTree = "<group>";
+		};
+		1AB27E60247BFEF60097968E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1AB27E61247C01660097968E /* Artist.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +236,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AB27E66247C0F5E0097968E /* RequestBuilder.swift in Sources */,
+				1AB27E62247C01660097968E /* Artist.swift in Sources */,
+				1AB27E5E247BFDB90097968E /* NetworkService.swift in Sources */,
 				1AB27E3C247BF8750097968E /* ViewController.swift in Sources */,
 				1AB27E38247BF8750097968E /* AppDelegate.swift in Sources */,
 				1AB27E3A247BF8750097968E /* SceneDelegate.swift in Sources */,
