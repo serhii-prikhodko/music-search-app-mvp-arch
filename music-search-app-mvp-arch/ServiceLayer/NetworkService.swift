@@ -9,13 +9,13 @@
 import Foundation
 
 protocol NetworkServiceProtocol {
-    func getArtistId(searchString: String, complition: @escaping (Result<[Artist]?, Error>) -> Void)
+    func findArtistByName(searchString: String, complition: @escaping (Result<[Artist]?, Error>) -> Void)
 }
 
 class NetworkService: NetworkServiceProtocol {
-    func getArtistId(searchString: String, complition: @escaping (Result<[Artist]?, Error>) -> Void) {
+    func findArtistByName(searchString: String, complition: @escaping (Result<[Artist]?, Error>) -> Void) {
         let requestBuilder = RequestBuilder()
-        let params = [Param(key: "term", value: "searchString"), Param(key: "entity", value: "musicArtist")]
+        let params = [Param(key: "term", value: searchString), Param(key: "entity", value: "musicArtist")]
         let url = requestBuilder.getUrlWithParams(baseURL: "https://itunes.apple.com/search", params: params)
         URLSession.shared.dataTask(with: url) {data, _, error in
             if let error = error {
