@@ -8,13 +8,47 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UITableViewController {
+    
+    // MARK: - Variables
+    let searchController = UISearchController(searchResultsController: nil)
+    var presenter: SearchViewPresenterProtocol!
+    var enteredText: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
+    // MARK: - Functions
+    func prepareSearchController() {
+        self.searchController.searchResultsUpdater = self
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.searchBar.placeholder = "Search News"
+        navigationItem.searchController = self.searchController
+        definesPresentationContext = true
+    }
 }
 
+extension SearchViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        searchBar.text = enteredText
+    }
+}
+
+extension SearchViewController: SearchViewProtocol {
+    var artistParam: String? {
+        get {
+            return self.enteredText
+        }
+    }
+
+    func success() {
+        tableView.reloadData()
+    }
+    
+    func failure(error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    
+}

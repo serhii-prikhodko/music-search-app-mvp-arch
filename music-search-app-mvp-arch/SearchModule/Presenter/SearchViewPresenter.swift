@@ -11,37 +11,38 @@ import Foundation
 protocol SearchViewProtocol: class {
     func success()
     func failure(error: Error)
+    var artistParam: String? {get}
 }
 
-protocol SearchViewDelegate: class {
-    func showSearchResults() -> String
+protocol SearchViewPresenterProtocol: class {
+    func getSearchResults()
+    init(view: SearchViewProtocol, networkService: NetworkServiceProtocol)
 }
 
-class SearchViewPresenter {
+class SearchViewPresenter: SearchViewPresenterProtocol {
     
     weak var view: SearchViewProtocol?
-    private let networkService: NetworkService
-    weak private var searchViewDelegate: SearchViewDelegate?
+    private let networkService: NetworkServiceProtocol
+    weak private var searchViewDelegate: SearchViewPresenterProtocol?
     var artists: [Artist]?
     
-    init(networkService: NetworkService) {
+    required init(view: SearchViewProtocol, networkService: NetworkServiceProtocol) {
+        self.view = view
         self.networkService = networkService
     }
     
-    func setViewDelegate(searchViewDelegate: SearchViewDelegate?) {
-        self.searchViewDelegate = searchViewDelegate
-    }
-    
-    func getSearchResults(searchString: String) {
-        self.networkService.findArtistByName(searchString: searchString) { [weak self] result in
-            guard let self = self else {return}
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let artists):
-                    self.artists = artists
-                    self.view?.success()
-                case .failure(let error):
-                    self.view?.failure(error: error)
+    func getSearchResults() {
+        if let searchString = self.view?.artistParam {
+            self.networkService.findArtistByName(searchString: searchString) { [weak self] result in
+                guard let self = self else {return}
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let artists):
+                        self.artists = artists
+                        self.view?.success()
+                    case .failure(let error):
+                        self.view?.failure(error: error)
+                    }
                 }
             }
         }
