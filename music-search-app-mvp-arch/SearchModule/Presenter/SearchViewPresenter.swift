@@ -17,6 +17,7 @@ protocol SearchViewProtocol: class {
 protocol SearchViewPresenterProtocol: class {
     func getSearchResults()
     init(view: SearchViewProtocol, networkService: NetworkServiceProtocol)
+    var artists: [Artist]? {get set}
 }
 
 class SearchViewPresenter: SearchViewPresenterProtocol {
@@ -38,7 +39,7 @@ class SearchViewPresenter: SearchViewPresenterProtocol {
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let artists):
-                        self.artists = artists
+                        self.artists = artists?.results
                         self.view?.success()
                     case .failure(let error):
                         self.view?.failure(error: error)

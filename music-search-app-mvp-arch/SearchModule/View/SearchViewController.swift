@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UITableViewController {
+class SearchViewController: UIViewController {
     
     // MARK: - Variables
     let searchController = UISearchController(searchResultsController: nil)
@@ -17,7 +17,12 @@ class SearchViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.prepareSearchController()
     }
+    // MARK: - IBOutlets
+    @IBOutlet weak var tableView: UITableView!
+    
     // MARK: - Functions
     func prepareSearchController() {
         self.searchController.searchResultsUpdater = self
@@ -31,7 +36,22 @@ class SearchViewController: UITableViewController {
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
-        searchBar.text = enteredText
+        self.enteredText = searchBar.text
+        self.presenter.getSearchResults()
+    }
+}
+extension SearchViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return self.presenter.artists?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let artist = presenter.artists?[indexPath.row]
+        cell.textLabel?.text = artist?.artistName
+        
+        return cell
     }
 }
 

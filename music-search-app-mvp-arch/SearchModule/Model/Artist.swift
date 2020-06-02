@@ -14,3 +14,7 @@ struct Artist: Codable {
     var artistLinkUrl: String?
     var primaryGenreName: String?
 }
+
+struct ArtistList: Codable {
+    var results: [Artist]?
+}

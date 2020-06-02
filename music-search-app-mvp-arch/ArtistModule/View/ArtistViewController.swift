@@ -10,21 +10,18 @@ import UIKit
 
 class ArtistViewController: UIViewController {
 
+    @IBOutlet weak var artistNameLabel: UILabel!
+    @IBOutlet weak var artistMainGenreLabel: UILabel!
+    var presenter: ArtistViewPresenterProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension ArtistViewController: ArtistViewProtocol {
+    func setArtistInfo(artist: Artist?) {
+        self.artistNameLabel.text = artist?.artistName
+        self.artistMainGenreLabel.text = artist?.primaryGenreName
     }
-    */
-
 }

@@ -9,11 +9,11 @@
 import Foundation
 
 protocol NetworkServiceProtocol {
-    func findArtistByName(searchString: String, complition: @escaping (Result<[Artist]?, Error>) -> Void)
+    func findArtistByName(searchString: String, complition: @escaping (Result<ArtistList?, Error>) -> Void)
 }
 
 class NetworkService: NetworkServiceProtocol {
-    func findArtistByName(searchString: String, complition: @escaping (Result<[Artist]?, Error>) -> Void) {
+    func findArtistByName(searchString: String, complition: @escaping (Result<ArtistList?, Error>) -> Void) {
         let requestBuilder = RequestBuilder()
         let params = [Param(key: "term", value: searchString), Param(key: "entity", value: "musicArtist")]
         let url = requestBuilder.getUrlWithParams(baseURL: "https://itunes.apple.com/search", params: params)
@@ -24,7 +24,7 @@ class NetworkService: NetworkServiceProtocol {
                 return
             }
             do {
-                let obj = try JSONDecoder().decode([Artist].self, from: data!)
+                let obj = try JSONDecoder().decode(ArtistList.self, from: data!)
                 complition(.success(obj))
             } catch {
                 complition(.failure(error))
