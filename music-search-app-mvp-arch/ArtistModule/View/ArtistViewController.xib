@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="artistMainGenreLabel" destination="drG-g1-4il" id="c5l-9m-b4z"/>
                 <outlet property="artistNameLabel" destination="Qg9-2r-Nvd" id="emY-jC-FQS"/>
+                <outlet property="view" destination="iN0-l3-epB" id="ndu-Ym-1P3"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

@@ -16,8 +16,9 @@ protocol SearchViewProtocol: class {
 
 protocol SearchViewPresenterProtocol: class {
     func getSearchResults()
-    init(view: SearchViewProtocol, networkService: NetworkServiceProtocol)
+    init(view: SearchViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol)
     var artists: [Artist]? {get set}
+    func tapOnTheArtist(artist: Artist?)
 }
 
 class SearchViewPresenter: SearchViewPresenterProtocol {
@@ -26,10 +27,12 @@ class SearchViewPresenter: SearchViewPresenterProtocol {
     private let networkService: NetworkServiceProtocol
     weak private var searchViewDelegate: SearchViewPresenterProtocol?
     var artists: [Artist]?
+    var router: RouterProtocol?
     
-    required init(view: SearchViewProtocol, networkService: NetworkServiceProtocol) {
+    required init(view: SearchViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol) {
         self.view = view
         self.networkService = networkService
+        self.router = router
     }
     
     func getSearchResults() {
@@ -47,5 +50,9 @@ class SearchViewPresenter: SearchViewPresenterProtocol {
                 }
             }
         }
+    }
+    
+    func tapOnTheArtist(artist: Artist?) {
+        self.router?.showArtistDetails(artist: artist)
     }
 }

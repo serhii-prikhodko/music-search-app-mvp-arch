@@ -13,8 +13,9 @@ protocol ArtistViewProtocol: class {
 }
 
 protocol ArtistViewPresenterProtocol: class {
-    init(view: ArtistViewProtocol, networkService: NetworkServiceProtocol, artist: Artist?)
+    init(view: ArtistViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, artist: Artist?)
     func setArtistInfo()
+    func tapBack()
 }
 
 class ArtistViewPresenter: ArtistViewPresenterProtocol {
@@ -22,16 +23,20 @@ class ArtistViewPresenter: ArtistViewPresenterProtocol {
     weak var view: ArtistViewProtocol?
     let networkService: NetworkServiceProtocol
     var artist: Artist?
+    var router: RouterProtocol?
     
-    required init(view: ArtistViewProtocol, networkService: NetworkServiceProtocol, artist: Artist?) {
+    required init(view: ArtistViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, artist: Artist?) {
         self.view = view
         self.networkService = networkService
         self.artist = artist
+        self.router = router
     }
     
     func setArtistInfo() {
         self.view?.setArtistInfo(artist: self.artist)
     }
     
-    
+    func tapBack() {
+        self.router?.popToRoot()
+    }
 }

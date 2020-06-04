@@ -16,6 +16,7 @@ class ArtistViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.presenter.setArtistInfo()
     }
 }
 

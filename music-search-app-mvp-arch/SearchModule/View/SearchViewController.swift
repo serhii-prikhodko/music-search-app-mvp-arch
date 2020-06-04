@@ -27,7 +27,7 @@ class SearchViewController: UIViewController {
     func prepareSearchController() {
         self.searchController.searchResultsUpdater = self
         self.searchController.obscuresBackgroundDuringPresentation = false
-        self.searchController.searchBar.placeholder = "Search News"
+        self.searchController.searchBar.placeholder = "Search Artist"
         navigationItem.searchController = self.searchController
         definesPresentationContext = true
     }
@@ -69,6 +69,11 @@ extension SearchViewController: SearchViewProtocol {
     func failure(error: Error) {
         print(error.localizedDescription)
     }
-    
-    
+}
+
+extension SearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let artist = self.presenter.artists?[indexPath.row]
+        self.presenter.tapOnTheArtist(artist: artist)
+    }
 }

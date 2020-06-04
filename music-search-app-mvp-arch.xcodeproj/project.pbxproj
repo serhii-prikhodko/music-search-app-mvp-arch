@@ -21,8 +21,9 @@
 		1AB27E5E247BFDB90097968E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB27E5D247BFDB90097968E /* NetworkService.swift */; };
 		1AB27E62247C01660097968E /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB27E61247C01660097968E /* Artist.swift */; };
 		1AB27E66247C0F5E0097968E /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB27E65247C0F5E0097968E /* RequestBuilder.swift */; };
+		1AB4B9AE24897CEA00589BA6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4B9AD24897CEA00589BA6 /* Router.swift */; };
 		1AD59FD72483B17B009C90EA /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD59FD62483B17B009C90EA /* SearchViewController.xib */; };
-		1AD59FD92483B657009C90EA /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD59FD82483B657009C90EA /* ModuleBuilder.swift */; };
+		1AD59FD92483B657009C90EA /* AssemblyModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD59FD82483B657009C90EA /* AssemblyModuleBuilder.swift */; };
 		1AEAF03A247EFDCF00A7D8FF /* SearchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEAF039247EFDCF00A7D8FF /* SearchViewPresenter.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,8 +56,9 @@
 		1AB27E5D247BFDB90097968E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		1AB27E61247C01660097968E /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		1AB27E65247C0F5E0097968E /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		1AB4B9AD24897CEA00589BA6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Router.swift; path = "music-search-app-mvp-arch/Router.swift"; sourceTree = SOURCE_ROOT; };
 		1AD59FD62483B17B009C90EA /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
-		1AD59FD82483B657009C90EA /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
+		1AD59FD82483B657009C90EA /* AssemblyModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyModuleBuilder.swift; sourceTree = "<group>"; };
 		1AEAF039247EFDCF00A7D8FF /* SearchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,13 +131,14 @@
 				1AB27E5F247BFEE70097968E /* SearchModule */,
 				1AB27E5C247BFD890097968E /* ServiceLayer */,
 				1AB27E37247BF8750097968E /* AppDelegate.swift */,
+				1AB4B9AD24897CEA00589BA6 /* Router.swift */,
 				1AB27E39247BF8750097968E /* SceneDelegate.swift */,
+				1AD59FD82483B657009C90EA /* AssemblyModuleBuilder.swift */,
 				1AB27E3D247BF8750097968E /* Main.storyboard */,
 				1AB27E43247BF8770097968E /* Assets.xcassets */,
 				1AB27E45247BF8770097968E /* LaunchScreen.storyboard */,
 				1AB27E48247BF8770097968E /* Info.plist */,
 				1AB27E40247BF8750097968E /* music_search_app_mvp_arch.xcdatamodeld */,
-				1AD59FD82483B657009C90EA /* ModuleBuilder.swift */,
 			);
 			path = "music-search-app-mvp-arch";
 			sourceTree = "<group>";
@@ -301,7 +304,8 @@
 				1AB27E5E247BFDB90097968E /* NetworkService.swift in Sources */,
 				1AB27E3C247BF8750097968E /* SearchViewController.swift in Sources */,
 				1AB27E38247BF8750097968E /* AppDelegate.swift in Sources */,
-				1AD59FD92483B657009C90EA /* ModuleBuilder.swift in Sources */,
+				1AD59FD92483B657009C90EA /* AssemblyModuleBuilder.swift in Sources */,
+				1AB4B9AE24897CEA00589BA6 /* Router.swift in Sources */,
 				1A8010892486E5C900327C01 /* ArtistViewPresenter.swift in Sources */,
 				1AEAF03A247EFDCF00A7D8FF /* SearchViewPresenter.swift in Sources */,
 				1AB27E3A247BF8750097968E /* SceneDelegate.swift in Sources */,
